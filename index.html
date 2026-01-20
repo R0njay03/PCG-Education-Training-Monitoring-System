@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PCG Education & Training Dashboard</title>
+  <meta name="description" content="Philippine Coast Guard Education and Training Dashboard System" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/pcg-badge.svg">
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <img src="assets/img/pcg-badge.svg" alt="PCG badge" class="brand__logo" />
+      <div class="brand__text">
+        <h1 class="brand__title">Philippine Coast Guard</h1>
+        <p class="brand__subtitle">Education & Training Dashboard System</p>
+      </div>
+    </div>
+
+    <div class="topbar__actions">
+      <div class="search">
+        <input type="search" placeholder="Search courses, trainees, units..." aria-label="Global search" />
+      </div>
+      <button class="btn btn--primary">Sign in</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Primary">
+      <nav class="nav">
+        <a class="nav__item nav__item--active" href="#overview" aria-current="page">Overview</a>
+        <a class="nav__item" href="#courses">Courses</a>
+        <div class="nav__dropdown">
+          <button class="nav__item nav__toggle" aria-haspopup="true" aria-expanded="false">Trainees ▾</button>
+          <div class="nav__menu" role="menu" hidden>
+            <a class="nav__menu-item" role="menuitem" href="#trainees-local">Local Training</a>
+            <a class="nav__menu-item" role="menuitem" href="#trainees-us">U.S Training</a>
+            <a class="nav__menu-item" role="menuitem" href="#trainees-asia">Asian & Other Countries</a>
+            <a class="nav__menu-item" role="menuitem" href="#trainees-unit">Unit Training</a>
+          </div>
+        </div>
+        <a class="nav__item" href="#instructors">Instructors</a>
+        <a class="nav__item" href="#schedules">Schedules</a>
+        <a class="nav__item" href="#reports">Reports</a>
+        <a class="nav__item" href="#settings">Settings</a>
+      </nav>
+
+      <div class="sidebar__footer">
+        <p class="muted">v0.1 • Prototype UI</p>
+      </div>
+    </aside>
+
+    <main class="content" id="overview" role="main">
+      <section class="grid grid--stats" aria-label="KPIs">
+        <div class="card stat">
+          <div class="stat__label">Active Courses</div>
+          <div class="stat__value">28</div>
+          <div class="stat__delta stat__delta--up">+3 this month</div>
+        </div>
+        <div class="card stat">
+          <div class="stat__label">Trainees</div>
+          <div class="stat__value">1,245</div>
+          <div class="stat__delta stat__delta--up">+84 this month</div>
+        </div>
+        <div class="card stat">
+          <div class="stat__label">Completion Rate</div>
+          <div class="stat__value">92%</div>
+          <div class="stat__delta stat__delta--neutral">stable</div>
+        </div>
+        <div class="card stat">
+          <div class="stat__label">Upcoming Sessions</div>
+          <div class="stat__value">16</div>
+          <div class="stat__delta stat__delta--down">-2 vs last week</div>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Main widgets">
+        <article class="card">
+          <header class="card__header">
+            <h2 class="card__title">Training Calendar</h2>
+            <button class="btn btn--ghost">View all</button>
+          </header>
+          <div class="calendar">
+            <div class="calendar__legend">
+              <span class="dot dot--primary"></span> Course
+              <span class="dot dot--accent"></span> Assessment
+              <span class="dot dot--muted"></span> Other
+            </div>
+            <div class="calendar__grid">
+              <div class="calendar__day">
+                <h3>Mon</h3>
+                <ul>
+                  <li class="tag tag--primary">Seamanship 101</li>
+                </ul>
+              </div>
+              <div class="calendar__day">
+                <h3>Tue</h3>
+                <ul>
+                  <li class="tag tag--accent">Swim Test</li>
+                </ul>
+              </div>
+              <div class="calendar__day">
+                <h3>Wed</h3>
+                <ul>
+                  <li class="tag">Orientation</li>
+                </ul>
+              </div>
+              <div class="calendar__day">
+                <h3>Thu</h3>
+                <ul>
+                  <li class="tag tag--primary">SAR Drills</li>
+                </ul>
+              </div>
+              <div class="calendar__day">
+                <h3>Fri</h3>
+                <ul>
+                  <li class="tag tag--accent">Final Assessment</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="card__header">
+            <h2 class="card__title">Recent Courses</h2>
+            <button class="btn btn--ghost">Manage</button>
+          </header>
+          <table class="table" aria-label="Recent courses table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Category</th>
+                <th>Enrolled</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Maritime Law Basics</td>
+                <td>Legal</td>
+                <td>86</td>
+                <td><span class="badge badge--success">Ongoing</span></td>
+              </tr>
+              <tr>
+                <td>Navigation & Charting</td>
+                <td>Seamanship</td>
+                <td>120</td>
+                <td><span class="badge badge--warning">Starting</span></td>
+              </tr>
+              <tr>
+                <td>Radio Comms Protocol</td>
+                <td>Communications</td>
+                <td>64</td>
+                <td><span class="badge">Planned</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card">
+          <header class="card__header">
+            <h2 class="card__title">Top Performing Trainees</h2>
+            <button class="btn btn--ghost">View leaderboard</button>
+          </header>
+          <ul class="list list--people">
+            <li>
+              <img src="https://api.dicebear.com/7.x/initials/svg?seed=JD" alt="JD avatar" class="avatar" />
+              <div>
+                <p class="title">J. Dela Cruz</p>
+                <p class="muted">Average: 97%</p>
+              </div>
+            </li>
+            <li>
+              <img src="https://api.dicebear.com/7.x/initials/svg?seed=MA" alt="MA avatar" class="avatar" />
+              <div>
+                <p class="title">M. Aquino</p>
+                <p class="muted">Average: 95%</p>
+              </div>
+            </li>
+            <li>
+              <img src="https://api.dicebear.com/7.x/initials/svg?seed=RS" alt="RS avatar" class="avatar" />
+              <div>
+                <p class="title">R. Santos</p>
+                <p class="muted">Average: 94%</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="card" id="reports">
+        <header class="card__header">
+          <h2 class="card__title">Reports Snapshot</h2>
+          <div class="segmented">
+            <button class="segmented__btn segmented__btn--active">Monthly</button>
+            <button class="segmented__btn">Quarterly</button>
+            <button class="segmented__btn">Yearly</button>
+          </div>
+        </header>
+        <div class="chart">
+          <div class="chart__bar" style="--h:62%"><span>62%</span></div>
+          <div class="chart__bar" style="--h:75%"><span>75%</span></div>
+          <div class="chart__bar" style="--h:48%"><span>48%</span></div>
+          <div class="chart__bar" style="--h:88%"><span>88%</span></div>
+          <div class="chart__bar" style="--h:54%"><span>54%</span></div>
+        </div>
+      </section>
+
+      <section class="grid" id="monitoring">
+        <article class="card">
+          <header class="card__header">
+            <h2 class="card__title">Training Distribution (by branch)</h2>
+            <div class="legend">
+              <span class="dot dot--local"></span> Local
+              <span class="dot dot--us"></span> U.S
+              <span class="dot dot--asia"></span> Asia & Others
+              <span class="dot dot--unit"></span> Unit
+            </div>
+          </header>
+          <div class="pie-wrap">
+            <div class="pie" style="--p-local:45; --p-us:20; --p-asia:25; --p-unit:10;">
+              <div class="pie__center">
+                <div class="pie__value">100%</div>
+                <div class="pie__label">Total</div>
+              </div>
+            </div>
+            <ul class="list pie-figures" aria-label="Training distribution figures">
+              <li><span class="dot dot--local"></span> Local: 45%</li>
+              <li><span class="dot dot--us"></span> U.S: 20%</li>
+              <li><span class="dot dot--asia"></span> Asia & Others: 25%</li>
+              <li><span class="dot dot--unit"></span> Unit: 10%</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="card__header">
+            <h2 class="card__title">Branches Monitoring</h2>
+            <button class="btn btn--ghost">View details</button>
+          </header>
+          <div class="branches">
+            <div class="branch branch--local">
+              <div class="branch__header">
+                <h3>Local Training Monitoring</h3>
+                <span class="badge badge--success">On track</span>
+              </div>
+              <ul class="branch__metrics">
+                <li>Active courses: 12</li>
+                <li>Trainees: 620</li>
+                <li>Completion rate: 93%</li>
+              </ul>
+            </div>
+            <div class="branch branch--us">
+              <div class="branch__header">
+                <h3>U.S Training Monitoring</h3>
+                <span class="badge badge--warning">Attention</span>
+              </div>
+              <ul class="branch__metrics">
+                <li>Active courses: 6</li>
+                <li>Trainees: 180</li>
+                <li>Completion rate: 88%</li>
+              </ul>
+            </div>
+            <div class="branch branch--asia">
+              <div class="branch__header">
+                <h3>Asian and Other Countries Monitoring</h3>
+                <span class="badge">Planned</span>
+              </div>
+              <ul class="branch__metrics">
+                <li>Active courses: 8</li>
+                <li>Trainees: 260</li>
+                <li>Completion rate: 90%</li>
+              </ul>
+            </div>
+            <div class="branch branch--unit">
+              <div class="branch__header">
+                <h3>Unit Training Monitoring</h3>
+                <span class="badge badge--success">On track</span>
+              </div>
+              <ul class="branch__metrics">
+                <li>Active courses: 10</li>
+                <li>Trainees: 185</li>
+                <li>Completion rate: 94%</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+    <section class="card card--wide" id="map-monitoring">
+        <header class="card__header">
+          <h2 class="card__title">PCG Offices & Districts Monitoring</h2>
+          <div class="legend">
+            <span class="dot dot--primary"></span> District HQ
+            <span class="dot dot--accent"></span> Sector
+            <span class="dot dot--unit"></span> Station
+          </div>
+        </header>
+        <div class="map-layout">
+          <div class="ph-map" role="img" aria-label="Philippine map with PCG offices">
+            <svg class="ph-svg" viewBox="0 0 400 700" aria-hidden="true" focusable="false">
+              <path class="island" d="M190 60 C150 110, 135 160, 150 210 C165 250, 180 275, 175 310 C170 345, 155 370, 165 410 C180 455, 210 480, 225 515 C240 550, 250 580, 245 610 C265 595, 280 560, 285 520 C290 480, 288 430, 285 390 C280 330, 260 280, 248 230 C236 180, 225 120, 205 80 Z"/>
+              <path class="island" d="M140 430 C170 410, 200 410, 230 425 C255 440, 260 470, 250 490 C235 515, 205 520, 185 535 C165 550, 145 565, 130 560 C120 555, 120 540, 130 520 C140 500, 120 480, 140 460 Z"/>
+              <path class="island" d="M210 560 C245 540, 280 550, 305 575 C330 600, 330 640, 305 660 C280 680, 240 675, 220 650 C200 625, 175 600, 190 580 C200 570, 195 565, 210 560 Z"/>
+              <circle class="island" cx="85" cy="520" r="28"/>
+            </svg>
+            <div class="map-tooltip" id="map-tooltip" hidden></div>
+            <button type="button" class="pin pin--district" style="--x:53%; --y:38%" aria-label="CG District NCR-CL" data-name="CG District NCR-CL" data-personnel="320"></button>
+            <button type="button" class="pin pin--district" style="--x:50%; --y:28%" aria-label="CG District Northern Luzon" data-name="CG District Northern Luzon" data-personnel="210"></button>
+            <button type="button" class="pin pin--district" style="--x:57%; --y:50%" aria-label="CG District Southern Tagalog" data-name="CG District Southern Tagalog" data-personnel="180"></button>
+            <button type="button" class="pin pin--district" style="--x:64%; --y:58%" aria-label="CG District Bicol" data-name="CG District Bicol" data-personnel="140"></button>
+            <button type="button" class="pin pin--district" style="--x:48%; --y:62%" aria-label="CG District Western Visayas" data-name="CG District Western Visayas" data-personnel="150"></button>
+            <button type="button" class="pin pin--district" style="--x:56%; --y:65%" aria-label="CG District Central Visayas" data-name="CG District Central Visayas" data-personnel="165"></button>
+            <button type="button" class="pin pin--district" style="--x:62%; --y:62%" aria-label="CG District Eastern Visayas" data-name="CG District Eastern Visayas" data-personnel="130"></button>
+            <button type="button" class="pin pin--district" style="--x:55%; --y:78%" aria-label="CG District Northern Mindanao" data-name="CG District Northern Mindanao" data-personnel="150"></button>
+            <button type="button" class="pin pin--district" style="--x:63%; --y:86%" aria-label="CG District Southeastern Mindanao" data-name="CG District Southeastern Mindanao" data-personnel="175"></button>
+            <button type="button" class="pin pin--district" style="--x:45%; --y:84%" aria-label="CG District Southwestern Mindanao" data-name="CG District Southwestern Mindanao" data-personnel="125"></button>
+            <button type="button" class="pin pin--district" style="--x:30%; --y:64%" aria-label="CG District Palawan" data-name="CG District Palawan" data-personnel="95"></button>
+          </div>
+          <div class="map-details">
+            <h3 class="title" id="office-name">Select an office</h3>
+            <p class="muted">Personnel assigned: <span id="office-personnel">—</span></p>
+            <ul class="list offices">
+              <li><button class="office-link" data-target="CG District NCR-CL">CG District NCR-CL</button></li>
+              <li><button class="office-link" data-target="CG District Northern Luzon">CG District Northern Luzon</button></li>
+              <li><button class="office-link" data-target="CG District Southern Tagalog">CG District Southern Tagalog</button></li>
+              <li><button class="office-link" data-target="CG District Bicol">CG District Bicol</button></li>
+              <li><button class="office-link" data-target="CG District Western Visayas">CG District Western Visayas</button></li>
+              <li><button class="office-link" data-target="CG District Central Visayas">CG District Central Visayas</button></li>
+              <li><button class="office-link" data-target="CG District Eastern Visayas">CG District Eastern Visayas</button></li>
+              <li><button class="office-link" data-target="CG District Northern Mindanao">CG District Northern Mindanao</button></li>
+              <li><button class="office-link" data-target="CG District Southeastern Mindanao">CG District Southeastern Mindanao</button></li>
+              <li><button class="office-link" data-target="CG District Southwestern Mindanao">CG District Southwestern Mindanao</button></li>
+              <li><button class="office-link" data-target="CG District Palawan">CG District Palawan</button></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer" role="contentinfo">
+    <p>© <span id="year"></span> Philippine Coast Guard • Education & Training Command</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Sidebar trainees dropdown
+    (function () {
+      const dropdown = document.querySelector('.nav__dropdown');
+      if (!dropdown) return;
+      const toggle = dropdown.querySelector('.nav__toggle');
+      const menu = dropdown.querySelector('.nav__menu');
+      function close() {
+        menu.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      function open() {
+        menu.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (menu.hidden) open(); else close();
+      });
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) close();
+      });
+      // keyboard accessibility
+      toggle.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault(); open();
+          const first = menu.querySelector('.nav__menu-item');
+          first && first.focus();
+        }
+      });
+      menu.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { close(); toggle.focus(); }
+      });
+    })();
+
+    (function () {
+      const pins = Array.from(document.querySelectorAll('.ph-map .pin'));
+      const tooltip = document.getElementById('map-tooltip');
+      const nameEl = document.getElementById('office-name');
+      const personnelEl = document.getElementById('office-personnel');
+
+      function showTooltip(pin) {
+        const name = pin.dataset.name || 'Office';
+        const personnel = pin.dataset.personnel || '0';
+        nameEl.textContent = name;
+        personnelEl.textContent = personnel;
+
+        const map = pin.closest('.ph-map');
+        const rect = pin.getBoundingClientRect();
+        const mapRect = map.getBoundingClientRect();
+        const x = rect.left - mapRect.left + rect.width / 2;
+        const y = rect.top - mapRect.top - 10;
+
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+        tooltip.innerHTML = '<strong>' + name + '</strong><br><span class="muted">' + personnel + ' personnel</span>';
+        tooltip.hidden = false;
+      }
+      function hideTooltip() { tooltip.hidden = true; }
+
+      pins.forEach(pin => {
+        pin.addEventListener('mouseenter', () => showTooltip(pin));
+        pin.addEventListener('mouseleave', hideTooltip);
+        pin.addEventListener('click', () => showTooltip(pin));
+        pin.addEventListener('focus', () => showTooltip(pin));
+        pin.addEventListener('blur', hideTooltip);
+      });
+
+      document.querySelectorAll('.office-link').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetName = btn.dataset.target;
+          const pin = pins.find(p => p.dataset.name === targetName);
+          if (pin) {
+            pin.focus();
+            showTooltip(pin);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
